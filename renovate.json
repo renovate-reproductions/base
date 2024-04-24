@@ -5,7 +5,7 @@
     "github>containerbase/.github//merge-queue.json"
   ],
   "ignorePaths": ["**/node_modules/**", "test/*/test/**"],
-  "enabledManagers": ["dockerfile", "github-actions", "nodenv", "npm", "regex"],
+  "enabledManagers": ["npm"],
   "separateMultipleMajor": false,
   "separateMajorMinor": true,
   "packageRules": [
@@ -152,6 +152,11 @@
       "matchPackageNames": ["checkov", "renovate"],
       "extends": ["schedule:weekly"],
       "automerge": true
+    },
+    {
+      "description": "No automerge",
+      "matchFiles": ["package.json"],
+      "automerge": false
     }
   ],
   "customManagers": [
